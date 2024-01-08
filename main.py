@@ -1,6 +1,6 @@
 from os import system
 system('cls')
-print('''
+print(r'''
   _________ __          __  .__          __  .__               
  /   _____//  |______ _/  |_|__| _______/  |_|__| ____   ______
  \_____  \\   __\__  \\   __\  |/  ___/\   __\  |/ ___\ /  ___/
@@ -8,7 +8,7 @@ print('''
 /_______  /|__| (____  /__| |__/____  > |__| |__|\___  >____  >
         \/           \/             \/               \/     \/ 
       ''')
-print("Coded by wanz\n\nUser space for each data\nPress Enter to calculate data")
+print("Coded by wanz\n\nUse space for each data\nPress Enter to calculate data")
 # data = []
 sorted_data = []
 raw_data = input("Data: ")
