@@ -1,4 +1,19 @@
 from os import system
+# from requests import post, get
+# test_data = get("http://192.168.43.151:8000/data.json").json()['ParsedResults'][0]['ParsedText']
+# print(test_data)
+
+# payload = {'isOverlayRequired': 'true',
+#                'apikey': 'K85363188888957',
+#                'language': 'eng',
+#                }
+# with open('test.png', 'rb') as f:
+#     r = post('https://api.ocr.space/parse/image',
+#                         files={'test.png': f},
+#                         data=payload,
+#                         )
+#     print(r.content.decode())
+# exit()
 system('cls')
 main_banner = r'''
   _________ __          __  .__          __  .__               
@@ -10,7 +25,6 @@ main_banner = r'''
       '''
 print(main_banner)
 print("\nUse space for each data and comma for frequency\nPress Enter to calculate data")
-# data = []
 def main_function():
     sorted_data = []
     raw_data = input("Data: ")
@@ -18,19 +32,8 @@ def main_function():
     frequency = {}
     cumulative_frequency = 0
     cumulative_item = 0
- 
-    # while True:
-    #     raw_data = input("Enter data: ")
-    #     if (raw_data != ""):
-    #         data.append(int(raw_data))
-    #     else:
-    #         break
-
-    
-
     system('cls')
     mean = 0
-    # median = 0
     if ',' not in raw_data:
         for i in data:
             sorted_data.append(int(i))
@@ -46,21 +49,14 @@ def main_function():
             cumulative_frequency = cumulative_frequency + frequency[sort_order[i]]
             cumulative_item = cumulative_item + (sort_order[i] * frequency[sort_order[i]])
         mean = cumulative_item / sum(frequency.values())
-        
-    # exit()
-
     sort_order = sorted(sorted_data)
-    # position = len(sort_order)
-    # print(position)
-    # exit()
     quartile = []
     limit = int(len(sort_order) / 2)
-    if limit % 2 != 0:
+    if (len(sort_order) % 2) == 0:
         for i in range(limit):
             median = (sort_order[i] + sort_order[-(i+1)]) / 2
     else:
         median = sort_order[limit]
-
     percentile = [.25,.5,.75]
     for i in range(3):
         try:
@@ -71,7 +67,6 @@ def main_function():
                 quartile.append(float(((sort_order[int(q_position)] + sort_order[int(q_position)]) / 2)))
         except:
             pass
-
     if ',' not in raw_data:
         mode = 1
         for i in sort_order:
@@ -81,10 +76,6 @@ def main_function():
         for i in frequency:
             if (frequency[i] == max(frequency.values())):
                 mode = i
-    # exit()
-
-    # upper_fence = 0
-    # lower_fence = 0
     lower_fence = quartile[0] - 1.5 * (quartile[2] - quartile[0]) 
     upper_fence = quartile[2] + 1.5 * (quartile[2] - quartile[0]) 
 
