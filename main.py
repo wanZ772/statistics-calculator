@@ -1,18 +1,8 @@
 from os import system
-# from requests import post, get
-# test_data = get("http://192.168.43.151:8000/data.json").json()['ParsedResults'][0]['ParsedText']
-# print(test_data)
-
-# payload = {'isOverlayRequired': 'true',
-#                'apikey': 'K85363188888957',
-#                'language': 'eng',
-#                }
-# with open('test.png', 'rb') as f:
-#     r = post('https://api.ocr.space/parse/image',
-#                         files={'test.png': f},
-#                         data=payload,
-#                         )
-#     print(r.content.decode())
+from requests import post, get
+# with open('test.png', 'rb') as image:
+#     result = post("https://api.api-ninjas.com/v1/imagetotext", files={'image':image})
+#     print(result.content.decode())
 # exit()
 system('cls')
 main_banner = r'''
